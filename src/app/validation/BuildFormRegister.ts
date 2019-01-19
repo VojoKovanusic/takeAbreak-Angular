@@ -1,10 +1,9 @@
-import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms"; 
+import { FormGroup, FormControl, Validators } from "@angular/forms"; 
 
-export class BuildFormRegister {
-    private form: FormGroup; 
+export class BuildFormRegister { 
 
     build(): FormGroup {
-        this.form = new FormGroup({
+       return new FormGroup({
 
             firstName: new FormControl('', [
                 Validators.required,
@@ -14,7 +13,7 @@ export class BuildFormRegister {
 
               email: new FormControl('', [
                 Validators.required,
-                Validators.minLength(3),
+                Validators.minLength(8),
                 Validators.email
               ]),
               lastName: new FormControl('', [
@@ -27,11 +26,16 @@ export class BuildFormRegister {
                 Validators.minLength(5),
                 Validators.maxLength(15)
               ]),
+              phoneNumber: new FormControl('', [
+                Validators.required,
+                Validators.minLength(5),
+                Validators.maxLength(15)
+              ]),
               role: new FormControl('', [
                 Validators.required,
                
               ]),
         })
-        return this.form;
+     
     }
 }

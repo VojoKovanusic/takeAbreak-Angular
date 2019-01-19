@@ -24,34 +24,7 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.registerForm= new FormGroup({
-
-      firstName: new FormControl('', [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(15)
-        ]),
-
-        email: new FormControl('', [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.email
-        ]),
-        lastName: new FormControl('', [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(15)
-        ]),
-        password: new FormControl('', [
-          Validators.required,
-          Validators.minLength(5),
-          Validators.maxLength(15)
-        ]),
-        role: new FormControl('', [
-          Validators.required,
-         
-        ]),
-  })
+    this.registerForm= this.buildForm.build()
   }
 
   saveUser() {
@@ -64,5 +37,22 @@ export class SignupComponent implements OnInit {
     this.router.navigate(["/login"])
   }
 
-
+  get firstName(){
+    return this.registerForm.get('firstName');
+  }
+  get lastName(){
+    return this.registerForm.get('lastName');
+  }
+  get email(){
+    return this.registerForm.get('email');
+  }
+  get role(){
+    return this.registerForm.get('role');
+  }
+  get password(){
+    return this.registerForm.get('password')
+  }
+  get phoneNumber(){
+    return this.registerForm.get('phoneNumber')
+  }
 }
