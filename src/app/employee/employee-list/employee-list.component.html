@@ -1,0 +1,38 @@
+<div class="row"> <div class="col-md-2" > </div>
+    <div class="col-md-4" align="center"> 
+    <table class="table table-sm">
+  <thead>
+      <th>firist Name</th>
+      <th>userName</th>
+      <th>takeAbreakToday</th>
+      <th>email</th>
+      <th>password</th>
+      <th>created</th>
+      <th>action</th>
+  </thead>
+  <ng-container *ngFor="let employee of employees">
+      <tr class="table-dark" >
+          <td> {{employee.firistName}}</td>
+          <td> {{employee.userName}} </td>
+          <td> {{employee.takeAbreakToday}} </td>
+          <td> {{employee.email}}</td> 
+          <td> {{employee.password}}</td>
+          <td> {{employee.created}} </td>
+          <td>
+              <button class="btn btn-outline-info" (click)="takeBreak(employee)">take Break</button>
+              <button class="btn btn-outline-danger" (click)="deleteEmployee(employee)">Delete</button>
+
+          </td>
+      </tr>
+
+
+  </ng-container>
+</table>
+
+<div class="alert alert-danger" *ngIf="showDeleteMessage">
+  You succesffuly delete record
+</div>
+
+</div>
+<div class="col-md-2" > </div>
+</div>

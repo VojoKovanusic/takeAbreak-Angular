@@ -1,0 +1,36 @@
+
+  <div class="col-md-8" *ngIf="isEmpty()" >
+      <div class="alert alert-info" >
+          <h3>
+            Currently employees on pause </h3>
+        </div>
+    <table class="table table-sm">
+      <thead>
+        <th>firist Name</th>
+        <th>userName</th>
+        <th>takeAbreakToday</th>
+        <th>email</th>
+        <th>password</th>
+        <th>created</th>
+        <th></th>
+      </thead>
+      <ng-container *ngFor="let employee of employees">
+        <tr class="table-dark">
+          <td> {{employee.firistName}}</td>
+          <td> {{employee.userName}} </td>
+          <td> {{employee.takeAbreakToday}} </td>
+          <td> {{employee.email}}</td>
+          <td> {{employee.password}}</td>
+          <td> {{employee.created}} </td>
+          <td>
+
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+
+  </div >
+  <div class="alert alert-info" *ngIf="!isEmpty()" >
+    <p>
+      Currently no employees who went to the pause </p>
+  </div>

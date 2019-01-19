@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Home page</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+
+          <div *ngIf=" authService.checkLogin()">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/user/on/pause">USERS ON PAUSE</a>
+        </li> </div>
+
+        <div *ngIf=" authService.checkLogin()">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/user/on/pause/today">TODAY ON PAUSE</a>
+          </li> </div>
+
+
+          <div *ngIf=" authService.checkLogin()">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/user">MY PROFIL</a>
+        </li> </div>
+
+        <div *ngIf=" authService.checkLogin()">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/users">ALL USERS</a>
+        </li>
+  </div>
+
+        <div *ngIf="!authService.checkLogin()">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">LOGIN</a>
+          </li>
+        </div>
+
+        <div *ngIf="!authService.checkLogin()">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/signup">SIGNUP</a>
+          </li>
+        </div>
+
+        <div *ngIf=" authService.checkLogin()">
+          <li class="nav-item">
+            <button (click)="logout()">Logout</button>
+          </li>
+        </div>
+        
+      </ul>
+  
+    </div>
+  </nav>
+  
+  
+  
+  <br> <br>
+  <div style="text-align:center">
+  
+    <h1>
+      {{ title }}!
+    </h1>
+    <img width="300" alt="Angular Logo" src={{img}}>
+  </div>
+  <br>
+ 

@@ -1,0 +1,28 @@
+ 
+<div [hidden]="true">
+    Waring
+    
+    <countdown-timer (zeroTrigger)="alertbasEnd()" [end]="endTime" ></countdown-timer>
+  <br>
+ <countdown-timer (zeroTrigger)="alerWarnings()" [end]="waringTime" ></countdown-timer>
+ </div>
+ 
+ <div class="stopwatch">
+ <countdown-timer (zeroTrigger)="alertEnd()" [end]="endTime" ></countdown-timer>
+ </div>
+ 
+ <div *ngIf="showWaringAlert">
+ <div class="alert alert-dismissible alert-warning">
+        <button type="button" (click)="hideWarningAlert()" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Pause is ended for 5 minutes!</h4>
+        <p class="mb-0">Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, <a href="#" class="alert-link">vel scelerisque nisl consectetur et</a>.</p>
+      </div>
+    </div>
+
+    <div *ngIf="showEndAlert">
+            <div class="alert alert-dismissible alert-danger">
+                   <button type="button" (click)="hideEndAlert()" class="close" data-dismiss="alert">&times;</button>
+                   <h4 class="alert-heading">Ende pause!</h4>
+                   <p class="mb-0">Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, <a href="#" class="alert-link">vel scelerisque nisl consectetur et</a>.</p>
+                 </div>
+               </div> 

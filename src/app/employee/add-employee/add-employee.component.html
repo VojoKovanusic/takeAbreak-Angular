@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-5">
+      <form [formGroup]="this.employeeService.form" (ngSubmit)="processFormOnSubmit()">
+
+        <div class="form group">
+          <label for="firistName">Enter firistName:</label>
+          <input type="text" name="firistName" formControlName="firistName" class="form-control" id="firistName" />
+
+        </div>
+
+        <div class="form group">
+          <label for="userName">Enter userName :</label>
+          <input type="text" name="userName" formControlName="userName"class="form-control" id="userName" />
+
+        </div>
+      
+        <div class="form group">
+          <label for="takeAbreakToday">Enter takeAbreakToday:</label>
+          <input type="text" name="takeAbreakToday" formControlName="takeAbreakToday" class="form-control" id="takeAbreakToday" />
+
+
+        </div>
+        <div class="form group">
+          <label for="face">Enter email of product:</label>
+          <input type="text" name="email" formControlName="email" class="form-control" id="email" />
+
+        </div>
+        <div class="form group">
+          <label for="email">Enter password of product:</label>
+          <input type="text" name="email" formControlName="password" class="form-control" id="password" />
+
+        </div>
+     
+        <input type="submit" value="Save product" class="btn btn-success" />
+
+      </form>
+      <div class="alert alert-info" *ngIf="showSucesssMesage">
+        Submitted succesfully!
+      </div>
+    </div>
+   
+ 
+ 
+  </div>
+</div>
