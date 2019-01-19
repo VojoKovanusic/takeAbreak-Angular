@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { LoginAuthService } from '../service/login-auth.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { BuildFormRegister } from '../validation/BuildFormRegister';
 import { User } from '../model/User';
 
@@ -19,20 +19,39 @@ export class SignupComponent implements OnInit {
   constructor(
     private router: Router, private userService: UserService,
     private authService: LoginAuthService,
-    private buildForm: FormBuilder) {
+    private buildForm: BuildFormRegister) {
     this.authService.isLoggedIn();
   }
 
   ngOnInit() {
-    this.registerForm= this.buildForm.group({
-      id: [],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      role: ['', Validators.required]
-    });
+    this.registerForm= new FormGroup({
+
+      firstName: new FormControl('', [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(15)
+        ]),
+
+        email: new FormControl('', [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.email
+        ]),
+        lastName: new FormControl('', [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(15)
+        ]),
+        password: new FormControl('', [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(15)
+        ]),
+        role: new FormControl('', [
+          Validators.required,
+         
+        ]),
+  })
   }
 
   saveUser() {

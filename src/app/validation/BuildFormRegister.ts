@@ -1,8 +1,7 @@
-import { FormGroup, FormControl, Validators } from "@angular/forms"; 
+import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms"; 
 
 export class BuildFormRegister {
-    private form: FormGroup
-   
+    private form: FormGroup; 
 
     build(): FormGroup {
         this.form = new FormGroup({
@@ -28,7 +27,10 @@ export class BuildFormRegister {
                 Validators.minLength(5),
                 Validators.maxLength(15)
               ]),
-              captcha: new FormControl()
+              role: new FormControl('', [
+                Validators.required,
+               
+              ]),
         })
         return this.form;
     }
