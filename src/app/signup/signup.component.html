@@ -1,13 +1,13 @@
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
 
         <form [formGroup]="registerForm"(ngSubmit)="saveUser()" >
            
-                <div class="form-group">
-                        <label>First Name</label>
+                <div class="form-group"> 
                         <input type="text" 
                         formControlName="firstName" 
                         class="form-control"
+                        placeholder="First Name"
                         />
     
                         <div *ngIf=
@@ -16,7 +16,7 @@
                          firstName.invalid" class="alert alert-danger" >
 
                          <div *ngIf="firstName.errors.required">
-                                Required filde
+                                Required field
                               </div>
               
                               <div *ngIf="firstName.errors.minlength">
@@ -26,6 +26,9 @@
                               <div *ngIf="firstName.errors.maxlength">
                                 -Max length for first name is {{firstName.errors.maxlength.requiredLength}} characters
                               </div>
+                              <div *ngIf="firstName.errors.isFirstLetterUppercase">
+                                     First letter must be uppercase
+                                  </div>
                         </div>
                     </div>
 
@@ -36,56 +39,60 @@
         
                     
              
-                <div class="form-group">
-                    <label for="lastName">LastName</label>
-                    <input type="text" class="form-control"   formControlName="lastName"  >
+                <div class="form-group"> 
+                    <input type="text" class="form-control"   formControlName="lastName" 
+                    placeholder="Last Name" >
                     <div *ngIf=
                     "lastName.touched
                      && 
                      lastName.invalid" class="alert alert-danger" >
 
                      <div *ngIf="lastName.errors.required">
-                            Required file
+                            Required field
                           </div>
           
                           <div *ngIf="lastName.errors.minlength">
-                            -Min length for last name is {{lastName.errors.minlength.requiredLength}} characters
+                             Min length for last name is {{lastName.errors.minlength.requiredLength}} characters
                           </div>
           
                           <div *ngIf="lastName.errors.maxlength">
-                            -Max length for last name is {{lastName.errors.maxlength.requiredLength}} characters
+                             Max length for last name is {{lastName.errors.maxlength.requiredLength}} characters
                           </div>
+                          <div *ngIf="lastName.errors.isFirstLetterUppercase">
+                                First letter must be uppercase
+                             </div>
                     </div>
                 </div>
                 
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" formControlName="email" >
+                <div class="form-group"> 
+                    <input type="email" class="form-control" formControlName="email" 
+                    placeholder="Email">
                     <div *ngIf=
                     "email.touched
                      && 
                      email.invalid" class="alert alert-danger" >
 
                      <div *ngIf="email.errors.required">
-                            Required filde
+                            Required field
                           </div>
           
                           <div *ngIf="email.errors.minlength">
-                            -Min length for name is {{email.errors.minlength.requiredLength}} characters
+                             Min length for name is {{email.errors.minlength.requiredLength}} characters
                           </div>
           
                           <div *ngIf="email.errors.email">
                              You must enter valid email 
                           </div>
+
+                          
                     </div>
                 </div>
                
 
-                <div class="form-group">
-                    <label for="password">Password</label>
+                <div class="form-group"> 
                     <input type="password" class="form-control" formControlName="password" 
-                     
+                     placeholder="Password"
                     >
                     <div *ngIf=
                     "password.touched
@@ -93,45 +100,52 @@
                      password.invalid" class="alert alert-danger" >
 
                      <div *ngIf="password.errors.required">
-                            Required filde
+                            Required field
                           </div>
           
                           <div *ngIf="password.errors.minlength">
-                            -Min length for password is {{password.errors.minlength.requiredLength}} characters
+                             Min length for password is {{password.errors.minlength.requiredLength}} characters
                           </div>
           
                           <div *ngIf="password.errors.maxlength">
-                            -Max length for password is {{password.errors.maxlength.requiredLength}} characters
+                             Max length for password is {{password.errors.maxlength.requiredLength}} characters
                           </div>
                     </div>
                 </div>
                 
 
                 <div class="form-group">
-                    <label for="phoneNumber">Phone Number</label>
-                    <input type="tel" class="form-control" formControlName="phoneNumber" >
+                   
+                    <input type="tel"
+                     class="form-control" 
+                     formControlName="phoneNumber"
+                     placeholder="Phone Number"
+                     >
                     <div *ngIf=
                     "phoneNumber.touched
                      && 
                      phoneNumber.invalid" class="alert alert-danger" >
 
                      <div *ngIf="phoneNumber.errors.required">
-                            Required file
+                            Required field
                           </div>
           
                           <div *ngIf="phoneNumber.errors.minlength">
-                            -Min length for phone number is {{phoneNumber.errors.minlength.requiredLength}} characters
+                             Min length for phone number is {{phoneNumber.errors.minlength.requiredLength}} characters
                           </div>
           
                           <div *ngIf="phoneNumber.errors.maxlength">
-                            -Max length for phone number is {{phoneNumber.errors.maxlength.requiredLength}} characters
+                            Max length for phone number is {{phoneNumber.errors.maxlength.requiredLength}} characters
                           </div>
+                          <div *ngIf="phoneNumber.errors.isNumber">
+                                Enter only number,please!
+                              </div>
                     </div>
                 </div>
                 
 
                 <div class="form-group">
-                    <label for="role">Role</label>
+                     Role 
                     <select class="form-control"  formControlName="role"  >
                         <option value="ADMIN">ADMIN</option>
                         <option value="USER">USER</option>
@@ -142,7 +156,7 @@
                      role.invalid" class="alert alert-danger" >
 
                      <div *ngIf="role.errors.required">
-                            Required filde
+                            Required field
                           </div>
           
                         

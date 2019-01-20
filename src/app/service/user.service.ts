@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http'; 
 import { User } from '../model/User';
+import { AbstractControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  
  
 
   constructor(private http: HttpClient) {
@@ -44,4 +46,15 @@ export class UserService {
    takePause(user:User,token: any): Observable<any> {
     const headers = new HttpHeaders({'Authorization': 'Bearer '+token});
     return this.http.put("http://localhost:8090/user/take/break",user, {headers: headers});
-  }}
+  }
+  checkIsEmailExist(token: any,control: AbstractControl): any {
+    const headers = new HttpHeaders({'Authorization': 'Bearer '+token});
+    return this.http.put("http://localhost:8090//check/email", {headers: headers});
+}
+    checkUsername(token: any,control: AbstractControl): any {
+      const headers = new HttpHeaders({'Authorization': 'Bearer '+token});
+      return this.http.put("http://localhost:8090//check/username"+control, {headers: headers});
+    }
+
+
+}
